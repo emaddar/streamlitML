@@ -1,6 +1,6 @@
 # Contents of ~/my_app/streamlit_app.py
 import streamlit as st
-
+ 
 
 st.header("Introduction")
 st.write('Statistics refers to the mathematics and techniques with which we understand data. It is a rich, enormous field, more suited to a shelf (or room) in a library than a chapter in a book, and so our discussion will necessarily not be a deep one. Instead, I’ll try to teach you just enough to be dangerous, and pique your interest just enough that you’ll go off and learn more.')
