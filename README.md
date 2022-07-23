@@ -1,8 +1,8 @@
-# Pages
+# streamlit application with Multiple Pages
 
-## This is my first try to use **github**
+## Description 
 
-we can use Latex as 
+This application create an appliation Python streamlit with multiple pages. Each page descripe the 
 
 $$
 \hat{y} = \beta_0  + \beta_1 x
