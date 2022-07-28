@@ -708,6 +708,8 @@ if youtub:
 st.markdown("")
 latex = r'''
 #### Correlation and Causation
+
+###### _"Association does not imply causation"_
 If $x$ and $y$ are strongly correlated, that might mean that $x$
 causes $y$, that $y$ causes $x$, that each causes the other, that some third factor
 causes both, or nothing at all :stuck_out_tongue_winking_eye:.
