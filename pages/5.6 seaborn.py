@@ -1,4 +1,5 @@
 import matplotlib.pyplot as plt
+from pyparsing import srange
 import streamlit as st
 import seaborn as sns
 
@@ -177,8 +178,23 @@ st.pyplot(fig)
 
 
 
+st.write('We can also use the parameter `size` as :')
 
+code = """
+sns.relplot(x='total_bill', y='tip', data = df_tips,
+            alpha= 0.8, color = 'blue', hue = 'size',
+            kind = 'scatter', row = 'sex', col = 'smoker',
+                                                        size = 'size')
+plt.show()
+"""
 
+st.code(code, language='python')
+
+fig = sns.relplot(x='total_bill', y='tip', data = df_tips,
+            alpha= 0.8, color = 'blue', hue = 'size',
+            kind = 'scatter', row = 'sex', col = 'smoker',
+                                                        size = 'size')
+st.pyplot(fig)
 
 
 st.markdown(r"""
@@ -226,6 +242,64 @@ sns.catplot(x='sex', y= 'tip', data = df_tips, hue = 'smoker',
 plt.show()
 """
 
+st.code(code, language='python')
+
 fig = sns.catplot(x='sex', y= 'tip', data = df_tips, hue = 'smoker', 
                                         palette= 'colorblind', kind='box')
+st.pyplot(fig)
+
+
+
+
+
+
+st.markdown(r"""
+##### Histograme
+""")
+
+code = """
+sns.histplot(x= 'tip', data = df_tips, bins = 25)
+plt.show()
+"""
+
+st.code(code, language='python')
+
+
+fig = plt.figure(figsize = (10,7))
+sns.histplot(x= 'tip', data = df_tips, bins = 25)
+st.pyplot(fig)
+
+
+
+st.markdown(r"""
+###### Note :
+We can't use the options `kind = 'hist'` in `relplot`. But we can always use `plt.subplots`.
+""")
+
+code = """
+fig, ax = plt.subplots(1,2,figsize=(10,7))
+plt.sca(ax[0])
+sns.histplot(x= 'tip', data = df_tips[df_tips['smoker']=='No'],
+                         bins = 25, color = 'red')
+plt.title("Smoker = No")
+
+plt.sca(ax[1])
+sns.histplot(x= 'tip', data = df_tips[df_tips['smoker']=='Yes'], bins = 25)
+plt.title("Smoker = Yes")
+
+plt.show()
+"""
+
+st.code(code, language='python')
+
+fig, ax = plt.subplots(1,2,figsize=(10,7))
+plt.sca(ax[0])
+sns.histplot(x= 'tip', data = df_tips[df_tips['smoker']=='No'],
+                         bins = 25, color = 'red')
+plt.title("Smoker = No")
+
+plt.sca(ax[1])
+sns.histplot(x= 'tip', data = df_tips[df_tips['smoker']=='Yes'], bins = 25)
+plt.title("Smoker = Yes")
+
 st.pyplot(fig)
