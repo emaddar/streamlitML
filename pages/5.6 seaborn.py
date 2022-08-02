@@ -191,8 +191,41 @@ plt.show()
 """
 
 st.code(code, language='python')
+
 fig = plt.figure(figsize=(10,7))
-sns.countplot(x='sex', data = df_tips, hue = 'smoker', palette= 'Paired')
+sns.countplot(x='sex', data = df_tips, hue = 'smoker', palette= 'hls')
 st.pyplot(fig)
 
 st.write('More color `palette` [here](https://seaborn.pydata.org/tutorial/color_palettes.html)')
+
+
+
+st.markdown(r"""
+##### Box Plot
+""")
+
+code = """
+sns.boxplot(x='sex', y= 'tip', data = df_tips, hue = 'smoker',
+                     palette= 'colorblind')
+plt.show()
+"""
+
+st.code(code, language='python')
+
+
+fig = plt.figure(figsize=(10,7))
+sns.boxplot(x='sex', y= 'tip', data = df_tips, hue = 'smoker', 
+            palette= 'colorblind')
+st.pyplot(fig)
+
+st.write("""Another methode to get the same plot is by using `catplot` with `kind='box' as :""")
+
+code = """
+sns.catplot(x='sex', y= 'tip', data = df_tips, hue = 'smoker', 
+                                        palette= 'colorblind', kind='box')
+plt.show()
+"""
+
+fig = sns.catplot(x='sex', y= 'tip', data = df_tips, hue = 'smoker', 
+                                        palette= 'colorblind', kind='box')
+st.pyplot(fig)
