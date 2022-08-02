@@ -49,3 +49,150 @@ print(df_tips.shape)  # (244, 7)
 
 st.code("print(df_tips.head())")
 st.dataframe(df_tips.head())
+
+
+
+
+st.markdown(r"""
+##### Scatter Plot
+""")
+code = '''
+import matplotlib.pyplot as plt
+sns.scatterplot(x='total_bill', y='tip', data = df_tips,
+                 alpha= 0.5, color = 'blue')
+plt.xlabel('Total Bill', fontsize = 12, color = 'black')
+plt.ylabel('Total Bill', fontsize = 12, color = 'black')
+plt.title('seaborn scatterplot', fontsize = 14, color = 'black')
+plt.show()
+'''
+st.code(code, language='python')
+
+
+import matplotlib.pyplot as plt
+fig = plt.figure(figsize=(10,7))
+sns.scatterplot(x='total_bill', y='tip', data = df_tips, alpha= 0.5,
+                 color = 'blue')
+plt.xlabel('Total Bill', fontsize = 12, color = 'black')
+plt.ylabel('Total Bill', fontsize = 12, color = 'black')
+plt.title('seaborn scatterplot', fontsize = 14, color = 'black')
+st.pyplot(fig)
+
+st.markdown("In `seaborn`, the `hue` parameter determines which column in the data frame should be used for colour encoding. See example [here](https://datascience.stackexchange.com/questions/46117/meaning-of-hue-in-seaborn-barplot) ")
+
+
+code = """
+sns.scatterplot(x='total_bill', y='tip', data = df_tips,
+                            alpha= 0.8, color = 'blue', hue = 'sex')
+plt.show()
+"""
+st.code(code, language='python')
+
+fig = plt.figure(figsize=(10,7))
+sns.scatterplot(x='total_bill', y='tip', data = df_tips,
+                            alpha= 0.8, color = 'blue', hue = 'sex')
+plt.xlabel('Total Bill', fontsize = 12, color = 'black')
+plt.ylabel('Total Bill', fontsize = 12, color = 'black')
+plt.title('seaborn scatterplot', fontsize = 14, color = 'black')
+st.pyplot(fig)
+
+
+st.markdown("""
+We can get the same scatterplot using `sns.relplot` as :
+""")
+
+code = """
+sns.relplot(x='total_bill', y='tip', data = df_tips,
+            alpha= 0.8, color = 'blue', hue = 'sex',
+                                                    kind = 'scatter')
+plt.show()
+"""
+st.code(code, language='python')
+
+
+
+fig = sns.relplot(x='total_bill', y='tip', data = df_tips,
+            alpha= 0.8, color = 'blue', hue = 'sex',
+                                                    kind = 'scatter')
+plt.xlabel('Total Bill', fontsize = 12, color = 'black')
+plt.ylabel('Total Bill', fontsize = 12, color = 'black')
+plt.title('seaborn scatterplot', fontsize = 14, color = 'black')
+st.pyplot(fig)
+
+st.markdown("""
+Then we can easily separate this scatterplot to two (or more) scatterplots 
+by (`col=` or `row=`) according to the category of `sex` by example :
+""")
+
+code = """
+sns.relplot(x='total_bill', y='tip', data = df_tips,
+            alpha= 0.8, color = 'blue', hue = 'sex',
+                                kind = 'scatter', col = 'sex')
+plt.show()
+"""
+st.code(code, language='python')
+
+fig = sns.relplot(x='total_bill', y='tip', data = df_tips,
+            alpha= 0.8, color = 'blue', hue = 'sex',
+                                kind = 'scatter', col = 'sex')
+st.pyplot(fig)
+
+
+code = """
+sns.relplot(x='total_bill', y='tip', data = df_tips,
+            alpha= 0.8, color = 'blue', hue = 'sex',
+                                kind = 'scatter', row = 'sex')
+plt.show()
+"""
+st.code(code, language='python')
+
+fig = sns.relplot(x='total_bill', y='tip', data = df_tips,
+            alpha= 0.8, color = 'blue', hue = 'sex',
+                                kind = 'scatter', row = 'sex')
+st.pyplot(fig)
+
+
+
+
+
+st.markdown("""
+We can also use `col=` and `row=` in the same time as :
+""")
+
+code = """
+sns.relplot(x='total_bill', y='tip', data = df_tips,
+            alpha= 0.8, color = 'blue', hue = 'sex',
+                                kind = 'scatter', row = 'sex', col = 'smoker')
+plt.show()
+"""
+st.code(code, language='python')
+
+
+
+fig = sns.relplot(x='total_bill', y='tip', data = df_tips,
+            alpha= 0.8, color = 'blue', hue = 'sex',
+                                kind = 'scatter', row = 'sex', col = 'smoker')
+st.pyplot(fig)
+
+
+
+
+
+
+
+
+
+st.markdown(r"""
+##### Bar Plot
+""")
+
+code = """
+sns.countplot(x='sex', data = df_tips, hue = 'smoker', palette= 'hls')
+plt.show()
+"""
+
+st.code(code, language='python')
+fig = plt.figure(figsize=(10,7))
+sns.countplot(x='sex', data = df_tips, hue = 'smoker', palette= 'Paired')
+st.pyplot(fig)
+
+st.write('More color `palette` [here](https://seaborn.pydata.org/tutorial/color_palettes.html)')
