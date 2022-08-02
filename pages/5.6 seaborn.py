@@ -26,3 +26,26 @@ st.markdown(r"""
 st.code("import seaborn as sns", language='python')
 
 
+
+
+
+st.markdown(r"""
+##### Load Dataset
+""")
+code = '''
+df_tips = sns.load_dataset('tips')  # This dataset is embedded in seaborn library
+print(df_tips.shape)  # (244, 7)
+'''
+st.code(code, language='python')
+
+st.write('[informations](https://www.rdocumentation.org/packages/reshape2/versions/1.4.2/topics/tips) about `tips` dataset.')
+st.write("Find more data for seaborn [here](https://github.com/mwaskom/seaborn-data).")
+
+import matplotlib.pyplot as plt
+import seaborn as sns
+
+df_tips = sns.load_dataset('tips')  # This dataset is embedded in seaborn library
+print(df_tips.shape)  # (244, 7)
+
+st.code("print(df_tips.head())")
+st.dataframe(df_tips.head())

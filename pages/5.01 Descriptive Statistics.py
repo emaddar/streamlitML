@@ -774,3 +774,6 @@ with col4:
     fig = plt.figure()
     plt.scatter(df.X, df.Y)
     st.pyplot(fig)
+
+
+st.write("For more, read [this](https://fxjollois.github.io/cours-2019-2020/m1--add-massives/seance2-stats.html) article (in frensh)")
