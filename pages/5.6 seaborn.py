@@ -418,3 +418,60 @@ df_air = df_air.dropna(subset=['Time'], axis = 0)
 st.code(code, language='python')
 
 df_air = df_air.dropna(subset=['Time'], axis = 0)
+
+
+
+
+code= """
+sns.lineplot(x= 'Time', y = 'NOx(GT)', data = df_air)
+plt.xticks(rotation = 90)
+plt.show()
+"""
+
+st.code(code, language='python')
+
+fig = plt.figure(figsize=(10,7))
+sns.lineplot(x= 'Time', y = 'NOx(GT)', data = df_air)
+plt.xticks(rotation = 90)
+st.pyplot(fig)
+
+
+
+
+
+
+
+for i in range(5):
+    st.markdown("")
+
+st.markdown(r"""
+#### Pairplot
+""")
+
+
+st.markdown(r"""
+##### Load data
+""")
+code = """
+penguins = sns.load_dataset("penguins")
+print(penguins.head())
+"""
+
+st.code(code, language='python')
+
+
+penguins = sns.load_dataset("penguins")
+st.dataframe(penguins.head())
+
+
+
+code = """
+sns.pairplot(penguins, hue="species")
+plt.show()
+"""
+
+st.code(code, language='python')
+
+fig = plt.figure(figsize=(10,7))
+sns.pairplot(penguins, hue="species")
+st.pyplot(fig)
