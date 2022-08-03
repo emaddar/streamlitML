@@ -275,7 +275,7 @@ st.markdown(r"""
 ###### option : kde = True :
 compute a **kernel density estimate** to smooth the distribution and show on the plot as (one or more) line(s). Only relevant with univariate data.
 
-See more in [Visualizing distributions of data](https://seaborn.pydata.org/tutorial/distributions.html)
+See more in [Visualizing distributions of data](https://seaborn.pydata.org/tutorial/distributions.html).
 """)
 
 
