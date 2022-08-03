@@ -363,3 +363,58 @@ st.markdown(r"""
 ###### Note :
 In case we have only one row in `subplots` as in our example, we can't use `ax[0,0]` for first plot ...
 """)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+for i in range(5):
+    st.markdown("")
+
+st.markdown(r"""
+#### Line Plot
+""")
+
+
+st.markdown(r"""
+##### Load and clean data
+""")
+code = """
+import pandas as pd
+df_air = pd.read_csv('https://raw.githubusercontent.com/ishanag9/air-quality-prediction/master/AirQualityUCI.csv')
+print(df_air.head())
+"""
+
+st.code(code, language='python')
+
+import pandas as pd
+df_air = pd.read_csv('https://raw.githubusercontent.com/ishanag9/air-quality-prediction/master/AirQualityUCI.csv')
+st.dataframe(df_air.head())
+
+
+st.write('[Understanding DataSet](https://github.com/ishanag9/air-quality-prediction/blob/master/README.md)')
+
+
+
+
+st.markdown(r"""
+###### Drop `Na` from `Time` column
+""")
+code = """
+df_air = df_air.dropna(subset=['Time'], axis = 0)
+"""
+st.code(code, language='python')
+
+df_air = df_air.dropna(subset=['Time'], axis = 0)
