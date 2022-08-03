@@ -272,8 +272,62 @@ st.pyplot(fig)
 
 
 st.markdown(r"""
+###### option : kde = True :
+compute a **kernel density estimate** to smooth the distribution and show on the plot as (one or more) line(s). Only relevant with univariate data.
+
+See more in [Visualizing distributions of data](https://seaborn.pydata.org/tutorial/distributions.html)
+""")
+
+
+code = """
+sns.histplot(x = 'total_bill', data = df_tips, hue = 'sex', kde = True) 
+"""
+st.code(code, language='python')
+fig = plt.figure(figsize=(10,7))
+sns.histplot(x = 'total_bill', data = df_tips, hue = 'sex', kde = True) 
+st.pyplot(fig)
+
+
+
+st.markdown(r"""
+###### option : multiple="stack" :
+emphasizes the part-whole relationship between the variables
+""")
+
+code = """
+sns.histplot(x = 'total_bill', data = df_tips, hue = 'sex', kde = True,
+                                                                    multiple="stack") 
+"""
+st.code(code, language='python')
+fig = plt.figure(figsize=(10,7))
+sns.histplot(x = 'total_bill', data = df_tips, hue = 'sex', kde = True, multiple="stack") 
+st.pyplot(fig)
+
+
+
+
+
+
+st.markdown(r"""
+###### option : multiple="dodge" :
+ moves them horizontally and reduces their width.
+""")
+
+code = """
+sns.histplot(x = 'total_bill', data = df_tips, hue = 'sex', kde = True,
+                                                                    multiple="dodge") 
+"""
+st.code(code, language='python')
+fig = plt.figure(figsize=(10,7))
+sns.histplot(x = 'total_bill', data = df_tips, hue = 'sex', kde = True, multiple="dodge") 
+st.pyplot(fig)
+
+
+
+
+st.markdown(r"""
 ###### Note :
-We can't use the options `kind = 'hist'` in `relplot`. But we can always use `plt.subplots`.
+We can **not** use the options `kind = 'hist'` in `relplot`. But we can always use `plt.subplots`.
 """)
 
 code = """
@@ -292,7 +346,7 @@ plt.show()
 
 st.code(code, language='python')
 
-fig, ax = plt.subplots(1,2,figsize=(10,7))
+fig, ax = plt.subplots(1,2,figsize=(10,3))
 plt.sca(ax[0])
 sns.histplot(x= 'tip', data = df_tips[df_tips['smoker']=='No'],
                          bins = 25, color = 'red')
@@ -303,3 +357,9 @@ sns.histplot(x= 'tip', data = df_tips[df_tips['smoker']=='Yes'], bins = 25)
 plt.title("Smoker = Yes")
 
 st.pyplot(fig)
+
+
+st.markdown(r"""
+###### Note :
+In case we have only one row in `subplots` as in our example, we can't use `ax[0,0]` for first plot ...
+""")
