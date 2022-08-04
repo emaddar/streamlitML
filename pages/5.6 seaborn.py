@@ -446,6 +446,10 @@ for i in range(5):
 
 st.markdown(r"""
 #### Pairplot
+[seaborn.pairplot](https://seaborn.pydata.org/generated/seaborn.pairplot.html) 
+Plot pairwise relationships in a dataset.
+
+By default, this function will create a grid of Axes such that each numeric variable in data will by shared across the y-axes across a single row and the x-axes across a single column. 
 """)
 
 
@@ -472,6 +476,6 @@ plt.show()
 
 st.code(code, language='python')
 
-fig = plt.figure(figsize=(10,7))
-sns.pairplot(penguins, hue="species")
+
+fig= sns.pairplot(penguins, hue="species")
 st.pyplot(fig)
