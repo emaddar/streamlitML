@@ -479,3 +479,4 @@ st.code(code, language='python')
 
 fig= sns.pairplot(penguins, hue="species")
 st.pyplot(fig)
+ 
