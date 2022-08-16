@@ -56,6 +56,16 @@ code = """
 """
 
 st.code(code, language='excel')
+
+
+from PIL import Image
+import os
+os.chdir(r"C:\Users\emada\PycharmProjects\Mylearning\Streamlit\pages\streamlitML\pages")
+image = Image.open('Excel.jpg')
+
+st.image(image, caption='')
+
+
 st.markdown(r"""
 where `A2:E10` is table `a`
 
