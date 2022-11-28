@@ -8,3 +8,4 @@ pyparsing==3.0.9
 scipy==1.9.3
 seaborn==0.12.1
 streamlit==1.15.1
+tk==0.1.0
