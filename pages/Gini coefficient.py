@@ -3,7 +3,7 @@ import pandas as pd
 import matplotlib.pyplot as plt
 import numpy as np
 
-st.markdown("""
+st.markdown(r"""
 # Mesures de concentration 
 ## sont le plus souvent utilisées pour des sommes d'argent ! Étudier la concentration d'argent, c'est regarder si l'argent est réparti de manière égalitaire ou pas.
 
@@ -17,7 +17,7 @@ La courbe de Lorenz n'est pas une statistique, c'est une courbe ! Du coup, on a 
 
 Il mesure l'aire présente entre la première bissectrice et la courbe de Lorenz. Plus précisément, si on note S cette aire, alors :
 
-gini=$2 \times S$
+gini=2 × S
 
 
 L'indice de Gini est un indicateur statistique utilisé pour mesurer l'égalité dans une société ou une distribution. Plus précisément, l'indice de Gini mesure la dispersion des valeurs autour de la médiane d'une distribution, en utilisant une échelle de 0 à 1, où 0 représente une distribution parfaite de l'égalité (c'est-à-dire une situation où chaque individu dans la distribution a la même valeur) et 1 représente une distribution parfaite de l'inégalité (c'est-à-dire une situation où un seul individu dans la distribution a toutes les valeurs et tous les autres n'ont aucune valeur).
