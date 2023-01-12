@@ -68,12 +68,12 @@ lorenz = np.cumsum(np.sort(dep)) / dep.sum()
 lorenz = np.append([0],lorenz) # La courbe de Lorenz commence à 0
 
 xaxis = np.linspace(0-1/n,1+1/n,n+1) #Il y a un segment de taille n pour chaque individu, plus 1 segment supplémentaire d'ordonnée 0. Le premier segment commence à 0-1/n, et le dernier termine à 1+1/n.
-plt.plot(xaxis,lorenz,drawstyle='steps-post')
+fig, ax = plt.plot(xaxis,lorenz,drawstyle='steps-post')
 
 xaxis = np.linspace(0-1/n,1+1/n,len(lorenz)) #Il y a un segment de taille n pour chaque individu, plus 1 segment supplémentaire d'ordonnée 0. Le premier segment commence à 0-1/n, et le dernier termine à 1+1/n.
 plt.plot(xaxis,lorenz,drawstyle='steps-post')
 plt.plot([0,1], [0,1]) #tracer la bisséctrice
-st.pyplot()
+st.pyplot(fig)
 
 # plt.show()
 AUC = (lorenz.sum() -lorenz[-1]/2 -lorenz[0]/2)/n # Surface sous la courbe de Lorenz. Le premier segment (lorenz[0]) est à moitié en dessous de 0, on le coupe donc en 2, on fait de même pour le dernier segment lorenz[-1] qui est à moitié au dessus de 1.
